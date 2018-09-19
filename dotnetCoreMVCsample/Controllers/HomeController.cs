@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using dotnetCoreMVCsample.Models;
 
 namespace dotnetCoreMVCsample.Controllers
 {
@@ -15,23 +13,26 @@ namespace dotnetCoreMVCsample.Controllers
             return View();
         }
 
-        public IActionResult About()
+        [HttpGet] //by default it's GET. So it's not necessary to add this line
+        public IActionResult Login()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public IActionResult Login(string LoginID, string Password)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (LoginID == "vadi" && Password == "Pa$$@123")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+               // ViewData["ErrorMsg"] = "[Error] Invalid User or Password";
+                ViewBag.msg = "[Error] Invalid User or Password";
+                return View();
+            }
+            
         }
     }
 }

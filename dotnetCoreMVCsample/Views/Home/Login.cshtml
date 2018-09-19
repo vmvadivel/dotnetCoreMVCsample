@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div align="center">
+        @using (Html.BeginForm("Login", "Home"))
+        {
+            <label>
+                Login ID:
+                @Html.TextBox("LoginID")
+            </label>
+            <br/>
+            <label>
+                Password:
+                @Html.Password("Password")
+            </label>
+            <br/>
+            <input type="submit" value="Login" />
+            <br />
+            <br/>
+            @ViewBag.msg
+            <br/>
+           // @ViewData["ErrorMsg"]
+        }
+    </div>
+</body>
+</html>
