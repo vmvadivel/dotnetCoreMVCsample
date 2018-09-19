@@ -14,22 +14,41 @@
     <div align="center">
         @using (Html.BeginForm("Login", "Home"))
         {
-            <label>
-                Login ID:
-                @Html.TextBox("LoginID")
-            </label>
-            <br/>
-            <label>
-                Password:
-                @Html.Password("Password")
-            </label>
-            <br/>
-            <input type="submit" value="Login" />
-            <br />
-            <br/>
-            @ViewBag.msg
-            <br/>
-           // @ViewData["ErrorMsg"]
+            <table border="0">
+                <tr>
+                    <td>Login ID:</td>
+                    <td>@Html.TextBox("LoginID")</td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>@Html.Password("Password")</td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Login" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">@ViewBag.msg</td>
+                </tr>
+            </table>
+            //@ViewData["ErrorMsg"]
+            <table border="0">
+                <tr>
+                    <td>
+                        @Html.ActionLink("Contact Details", "ContactDetails", "Home")
+                    </td>
+                    <td>
+                        <div>This is a HTML helper function</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-controller="Home" asp-action="ContactDetails">Contact Details</a>
+                    </td>
+                    <td>
+                        <div>Alternatively we can use Tag helper function</div>
+                    </td>
+                </tr>
+            </table>
         }
     </div>
 </body>

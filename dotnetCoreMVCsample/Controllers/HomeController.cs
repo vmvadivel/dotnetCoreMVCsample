@@ -28,11 +28,16 @@ namespace dotnetCoreMVCsample.Controllers
             }
             else
             {
-               // ViewData["ErrorMsg"] = "[Error] Invalid User or Password";
+                //ViewData["ErrorMsg"] = "[Error] Invalid User or Password";
                 ViewBag.msg = "[Error] Invalid User or Password";
                 return View();
             }
             
+        }
+
+        public IActionResult ContactDetails()
+        {
+            return View();
         }
     }
 }
