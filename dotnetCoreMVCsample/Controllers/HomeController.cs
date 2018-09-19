@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace dotnetCoreMVCsample.Controllers
 {
     public class HomeController : Controller
     {
+        IConfiguration configuration;
+
+        public HomeController(IConfiguration configuration)
+        {
+            this.configuration = configuration;
+        }
+
         public IActionResult Index()
         {
+            string displayText = configuration["constr"];
+            ViewBag.displayText = displayText;
+
             return View();
         }
 
